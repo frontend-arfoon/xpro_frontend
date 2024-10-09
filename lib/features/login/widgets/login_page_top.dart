@@ -1,4 +1,5 @@
 import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPageTop extends StatelessWidget {
   const LoginPageTop({
@@ -27,7 +28,36 @@ class LoginPageTop extends StatelessWidget {
             SvgIcon(SvgIcons.arrow, size: 14, color: context.colors.text),
           ]),
         ),
-        (siz.width.toInt() - 250).spacesW,
+        Spaces.smallWidth,
+        XPCard(
+          height: 15,
+          color: context.colors.disabledLight,
+          width: 1,
+        ),
+        Spaces.smallWidth,
+        BlocBuilder<ThemeCubit, ThemeMode>(
+          builder: (context, mode) {
+            return XPCard(
+              child:
+                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                if (mode == ThemeMode.light)
+                  SvgIcon(SvgIcons.dark, color: context.colors.text, onTap: () {
+                    ThemeCubit.of(context).changeTo(ThemeMode.dark);
+                  }),
+                if (mode == ThemeMode.dark)
+                  SvgIcon(SvgIcons.light, color: context.colors.text,
+                      onTap: () {
+                    ThemeCubit.of(context).changeTo(ThemeMode.system);
+                  }),
+                if (mode == ThemeMode.system)
+                  SvgIcon(SvgIcons.auto, color: context.colors.text, onTap: () {
+                    ThemeCubit.of(context).changeTo(ThemeMode.light);
+                  }),
+              ]),
+            );
+          },
+        ),
+        (siz.width.toInt() - 300).spacesW,
         XPCard(
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
             SvgIcon(SvgIcons.exact, size: 35),

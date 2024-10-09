@@ -1,4 +1,5 @@
 import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_svg/svg.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -58,14 +59,16 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            right: 550,
-            top: 300,
-            child: SvgIcon(SvgIcons.officer, size: 100),
-          ),
-          Positioned(
             right: 200,
             bottom: 0,
             child: _buildLoginFormPlate(context),
+          ),
+          Positioned(
+            right: 600,
+            top: 300,
+            width: 200,
+            height: 200,
+            child: SvgPicture.asset("assets/svg/exact.svg"),
           ),
         ],
       ),

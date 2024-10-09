@@ -10,8 +10,8 @@ class LoginFormTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgIcon(SvgIcons.exactPro),
-        Spaces.tinyHeight,
+        SvgIcon(SvgIcons.exactPro, width: 150, height: 30),
+        Spaces.mediumHeight,
         Text(
           "Welcome back",
           style: context.theme.primaryTextTheme.displayLarge,

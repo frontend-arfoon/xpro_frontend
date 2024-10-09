@@ -8,4 +8,7 @@ class SvgIcons {
   static SvgData exactPro = SvgData("exact_pro");
   static SvgData officer = SvgData("officer");
   static SvgData global = SvgData("global");
+  static SvgData dark = SvgData("light");
+  static SvgData light = SvgData("dark");
+  static SvgData auto = SvgData("auto");
 }
