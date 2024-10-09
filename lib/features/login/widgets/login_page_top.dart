@@ -7,23 +7,27 @@ class LoginPageTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var siz = MediaQuery.of(context).size;
+
     return XPCard(
       padding: Spaces.smallAll,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         XPCard(
-            onTap: () {
-              Locales.change(context, "ps");
-            },
-            onDoubleTap: () {
-              Locales.change(context, "en");
-            },
-            child: Row(children: [
-              SvgIcon(SvgIcons.global, color: context.colors.text),
-              Spaces.miniWidth,
-              Text("English", style: context.theme.textTheme.bodyMedium),
-              Spaces.miniWidth,
-              SvgIcon(SvgIcons.arrow, size: 14, color: context.colors.text),
-            ])),
+          onTap: () {
+            Locales.change(context, "ps");
+          },
+          onDoubleTap: () {
+            Locales.change(context, "en");
+          },
+          child: Row(children: [
+            SvgIcon(SvgIcons.global, color: context.colors.text),
+            Spaces.miniWidth,
+            Text("English", style: context.theme.textTheme.bodyMedium),
+            Spaces.miniWidth,
+            SvgIcon(SvgIcons.arrow, size: 14, color: context.colors.text),
+          ]),
+        ),
+        (siz.width.toInt() - 250).spacesW,
         XPCard(
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
             SvgIcon(SvgIcons.exact, size: 35),

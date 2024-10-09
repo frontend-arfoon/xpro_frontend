@@ -228,7 +228,7 @@ class _AppTextFieldState extends State<AppTextField> {
             ? errorColor.withOpacity(.38)
             : context.colors.disabledLight,
       ),
-      borderRadius: widget.borderRadius ?? Radiuses.smallCircle,
+      borderRadius: widget.borderRadius ?? Radiuses.mediumCircle,
     );
 
     var borderColor = field.hasError
@@ -240,7 +240,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 : context.theme.disabledLightColor);
     var focusBorder = OutlineInputBorder(
       borderSide: BorderSide(width: 1.5, color: borderColor),
-      borderRadius: widget.borderRadius ?? Radiuses.smallCircle,
+      borderRadius: widget.borderRadius ?? Radiuses.mediumCircle,
     );
 
     return XPCard(

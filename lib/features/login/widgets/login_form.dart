@@ -23,7 +23,6 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return XPCard(
-      border: Border.all(color: context.colors.disabledLight),
       padding: Spaces.only(horizontal: Spaces.medium, vertical: Spaces.small),
       borderRadius: Radiuses.mediumCircle,
       maxWidth: 400,
@@ -79,7 +78,7 @@ class LoginForm extends StatelessWidget {
             height: 40,
             width: double.infinity,
             color: context.colors.primary,
-            borderRadius: Radiuses.smallCircle,
+            borderRadius: Radiuses.mediumCircle,
             alignment: AlignmentDirectional.center,
             child: Text(
               isLoading ? "......" : "Get logged in",
