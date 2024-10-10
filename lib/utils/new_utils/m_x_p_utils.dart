@@ -40,7 +40,7 @@ class MXPUtils {
     return Color(int.parse('FF$hex', radix: 16));
   }
 
-  static void navigateTo(BuildContext context, Widget screen) {
+  static void goTo(BuildContext context, Widget screen) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
   }
 

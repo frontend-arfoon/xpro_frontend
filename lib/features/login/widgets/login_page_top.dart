@@ -13,6 +13,7 @@ class LoginPageTop extends StatelessWidget {
     return XPCard(
       padding: Spaces.smallAll,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Spaces.smallWidth,
         XPCard(
           onTap: () {
             Locales.change(context, "ps");
@@ -57,7 +58,7 @@ class LoginPageTop extends StatelessWidget {
             );
           },
         ),
-        (siz.width.toInt() - 300).spacesW,
+        (siz.width.toInt() - 350).spacesW,
         XPCard(
           child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
             SvgIcon(SvgIcons.exact, size: 35),
