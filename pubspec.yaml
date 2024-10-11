@@ -11,13 +11,18 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_utils:
+    git:
+      url: https://github.com/arfoon/flutter_utils.git
+      ref: "33"
+
 
   cupertino_icons: ^1.0.6
   flutter_bloc: ^8.1.6
-  flutter_locales: ^3.0.2
+  # flutter_locales: ^3.0.2
   graphview: ^1.2.0
-  flutter_svg: ^2.0.10+1
-  shared_preferences: ^2.3.2
+  # flutter_svg: ^2.0.10+1
+  # shared_preferences: ^2.3.2
   http: ^1.2.2
 
 

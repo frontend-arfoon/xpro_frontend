@@ -1,4 +1,4 @@
-import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_utils/flutter_utils.dart';
 
 class SideDialog extends StatelessWidget {
   const SideDialog({
@@ -23,7 +23,6 @@ class SideDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // if (showBack) const StartDialogCloseButton(),
             Container(
               width: width,
               color: context.theme.backgroundColor,

@@ -2,6 +2,11 @@ import 'package:exact_pro/features/dashboard/views/dashboard_screen.dart';
 import 'package:exact_pro/utils/new_utils/m_x_p_utils.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_utils/flutter_utils.dart';
+
+// All Test Pages
+// 1) TestLoginPage()
+// 1.1) LoginPage(onLogin(username, password){})
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -108,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildLoginFormPlate(BuildContext context, Size size) {
     return XPCard(
       width: size.width <= 500 ? 500 : 400,
-      height: size.width <= 500 ? 250 : 700,
+      height: size.width <= 500 ? 270 : 700,
       color: context.colors.primary,
       borderRadius: size.width <= 500
           ? BorderRadius.circular(360).copyWith(

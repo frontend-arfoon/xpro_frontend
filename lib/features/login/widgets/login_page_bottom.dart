@@ -1,4 +1,5 @@
 import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_utils/flutter_utils.dart';
 
 class LoginPageBottom extends StatelessWidget {
   const LoginPageBottom({
@@ -13,7 +14,7 @@ class LoginPageBottom extends StatelessWidget {
             onTap: () {},
             child: Text("Term Of US",
                 style: context.theme.primaryTextTheme.bodyMedium)),
-        Spaces.tinyWidth,
+        Spaces.tinyHeight,
         XPCard(height: 15, width: 1, color: context.colors.disabledLight),
         Spaces.tinyWidth,
         XPCard(

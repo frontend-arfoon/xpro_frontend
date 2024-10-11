@@ -1,14 +1,14 @@
-import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_utils/flutter_utils.dart';
 
 class SvgIcons {
-  static SvgData obscura = SvgData("obscure");
-  static SvgData arrow = SvgData("arrow");
-  static SvgData circleAdd = SvgData("circle_add");
-  static SvgData exact = SvgData("exact");
-  static SvgData exactPro = SvgData("exact_pro");
-  static SvgData officer = SvgData("officer");
-  static SvgData global = SvgData("global");
-  static SvgData dark = SvgData("light");
-  static SvgData light = SvgData("dark");
-  static SvgData auto = SvgData("auto");
+  static SvgData obscura = const SvgData("obscure");
+  static SvgData arrow = const SvgData("arrow");
+  static SvgData circleAdd = const SvgData("circle_add");
+  static SvgData exact = const SvgData("exact");
+  static SvgData exactPro = const SvgData("exact_pro");
+  static SvgData officer = const SvgData("officer");
+  static SvgData global = const SvgData("global");
+  static SvgData dark = const SvgData("light");
+  static SvgData light = const SvgData("dark");
+  static SvgData auto = const SvgData("auto");
 }

@@ -1,4 +1,6 @@
+import 'package:exact_pro/utils/utils.dart';
 import 'package:exact_pro/x_pro.dart';
+import 'package:flutter_utils/flutter_utils.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
@@ -16,6 +18,8 @@ class MainApp extends StatelessWidget {
       appData: AppData(
         imageHttpHeaders: () => {},
         theme: theme,
+        defaultImage: SvgIcons.circleAdd,
+        closeIcon: SvgIcons.arrow,
       ),
       builder: (mode) {
         return LocaleBuilder(
