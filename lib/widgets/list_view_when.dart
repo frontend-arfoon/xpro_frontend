@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class ListViewWhen extends StatelessWidget {
   const ListViewWhen({
-    Key? key,
+    super.key,
     required this.children,
     required this.when,
     this.maxHeight,
-  }) : super(key: key);
+  });
   final List<Widget> children;
   final bool when;
   final double? maxHeight;

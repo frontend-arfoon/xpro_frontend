@@ -1,18 +1,21 @@
-import 'package:exact_pro/features/dashboard/views/dashboard_screen.dart';
-import 'package:exact_pro/utils/new_utils/m_x_p_utils.dart';
-import 'package:exact_pro/x_pro.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
-// All Test Pages
-// 1) TestLoginPage()
-// 1.1) LoginPage(onLogin(username, password){})
+import 'package:exact_pro/x_pro.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  const LoginPage({super.key, this.onLogin});
+
+  final Function(LoginData)? onLogin;
 
   @override
   State<LoginPage> createState() => _LoginPageState();
+}
+
+class LoginData {
+  final String email;
+  final String password;
+
+  LoginData({required this.email, required this.password});
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -20,11 +23,14 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool loading = false;
+  String? error;
+
   bool onSecure = true;
 
-  bool isMobile = false;
-
-  String? error;
+  LoginData get _loginRecord => (LoginData(
+        email: _emailController.text,
+        password: _passwordController.text,
+      ));
 
   @override
   void dispose() {
@@ -43,10 +49,11 @@ class _LoginPageState extends State<LoginPage> {
       height: size.height,
       child: Stack(
         children: [
-          if (!isMobile) const Positioned(top: 0, child: LoginPageTop()),
+          if (!context.isDesktop)
+            const Positioned(top: 0, child: LoginPageTop()),
           Positioned(
-            left: size.width <= 500 ? 40 : 200,
-            top: size.width <= 500 ? 250 : 100,
+            left: context.isMobile ? 40 : 200,
+            top: context.isMobile ? 250 : 100,
             child: Form(
               key: _formKey,
               child: LoginForm(
@@ -68,12 +75,20 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     }
 
+                    //! work on it
+                    // if (error != null) {
+                    //   setState(() {
+                    //     error = "Error";
+                    //   });
+                    //   return;
+                    // }
+
                     setState(() {
                       loading = true;
                     });
 
                     Future.delayed(const Duration(seconds: 3));
-                    MXPUtils.goTo(context, const DashboardScreen());
+                    widget.onLogin?.call(_loginRecord);
                   } catch (e) {
                     error = e.toString();
                   } finally {
@@ -93,14 +108,14 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           Positioned(
-            right: size.width <= 500 ? 0 : 200,
-            bottom: size.width <= 500 ? null : 0,
-            top: size.width <= 500 ? 0 : null,
+            right: context.isMobile ? 0 : 200,
+            bottom: context.isMobile ? null : 0,
+            top: context.isMobile ? 0 : null,
             child: _buildLoginFormPlate(context, size),
           ),
           Positioned(
-            right: size.width <= 500 ? 150 : 500,
-            top: size.width <= 500 ? 80 : 300,
+            right: context.isMobile ? 150 : 500,
+            top: context.isMobile ? 80 : 300,
             width: 200,
             height: 200,
             child: SvgPicture.asset("assets/svg/exact.svg"),
@@ -112,10 +127,10 @@ class _LoginPageState extends State<LoginPage> {
 
   Widget _buildLoginFormPlate(BuildContext context, Size size) {
     return XPCard(
-      width: size.width <= 500 ? 500 : 400,
-      height: size.width <= 500 ? 270 : 700,
+      width: context.isMobile ? 500 : 400,
+      height: context.isMobile ? 270 : 700,
       color: context.colors.primary,
-      borderRadius: size.width <= 500
+      borderRadius: context.isMobile
           ? BorderRadius.circular(360).copyWith(
               topRight: const Radius.circular(0),
               topLeft: const Radius.circular(0),
