@@ -11,4 +11,7 @@ class SvgIcons {
   static SvgData dark = const SvgData("light");
   static SvgData light = const SvgData("dark");
   static SvgData auto = const SvgData("auto");
+
+  static SvgData close = const SvgData("auto");
+  static SvgData defaultImage = const SvgData("auto");
 }
