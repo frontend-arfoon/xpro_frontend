@@ -12,7 +12,8 @@ class LoginForm extends StatelessWidget {
     required this.onFormSubmit,
     required this.onObscure,
     required this.obSecure,
-    this.error,
+    required this.onForget,
+    required this.onAskRegister,
   });
 
   final TextEditingController emailController;
@@ -22,22 +23,26 @@ class LoginForm extends StatelessWidget {
 
   final Function() onFormSubmit;
   final Function() onObscure;
-  final String? error;
+  final Function() onForget;
+  final Function() onAskRegister;
 
   @override
   Widget build(BuildContext context) {
     return XPCard(
-      padding: Spaces.only(horizontal: Spaces.medium, vertical: Spaces.small),
+      padding: Spaces.only(
+          horizontal: Spaces.medium,
+          vertical: Spaces.small,
+          bottom: context.isDesktop ? Spaces.xlarge : Spaces.medium),
       borderRadius: Radiuses.mediumCircle,
-      maxWidth: 400,
-      maxHeight: 500,
       child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const LoginFormTitle(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppTextField(
-              label: "Email",
+              height: 60,
+              prefix: SvgIcon(SvgIcons.email),
+              hintLabel: "Email",
               hintText: "Enter Your Email",
               controller: emailController,
               validator: (value) {
@@ -54,7 +59,9 @@ class LoginForm extends StatelessWidget {
             ),
             Spaces.smallHeight,
             AppTextField(
-              label: "Password",
+              height: 60,
+              hintLabel: "Password",
+              prefix: SvgIcon(SvgIcons.password),
               controller: passwordController,
               obSecureText: obSecure,
               hintText: "Enter Your Password",
@@ -68,13 +75,8 @@ class LoginForm extends StatelessWidget {
             ),
           ],
         ),
-        Spaces.smallHeight,
-        if (error != null)
-          XPCard(
-            padding: Spaces.miniAll,
-            child: Text(error!),
-          ),
         XPCard(
+          onTap: onForget,
           alignment: AlignmentDirectional.topEnd,
           child: Text("Forget Password?",
               style: context.theme.primaryTextTheme.labelMedium),
@@ -93,16 +95,19 @@ class LoginForm extends StatelessWidget {
           ),
         ),
         Spaces.smallHeight,
-        RichText(
-          text: TextSpan(
-            text: "Don't hav an account",
-            style: context.theme.disabledTextTheme.labelMedium,
-            children: [
-              const TextSpan(text: "  "),
-              TextSpan(
-                  text: "Ask to get registered!",
-                  style: context.theme.primaryTextTheme.bodyMedium),
-            ],
+        AppCard(
+          onTap: onAskRegister,
+          child: RichText(
+            text: TextSpan(
+              text: "Don't hav an account",
+              style: context.theme.disabledTextTheme.labelMedium,
+              children: [
+                const TextSpan(text: "  "),
+                TextSpan(
+                    text: "Ask to get registered!",
+                    style: context.theme.primaryTextTheme.bodyMedium),
+              ],
+            ),
           ),
         )
       ]),

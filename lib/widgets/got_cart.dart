@@ -10,27 +10,14 @@ class GotoCart extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.push(Scaffold(
-          body: Container(
-            margin: const EdgeInsets.all(12),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12), topRight: Radius.circular(12)),
-            ),
-            child: child,
-          ),
-        ));
+        context.push(Scaffold(appBar: AppBar(title: Text(title)), body: child));
       },
-      child: Container(
-        margin: const EdgeInsets.all(2),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            borderRadius: const BorderRadius.all(Radius.circular(8))),
-        child: Text(
-          title,
-          style: const TextStyle(color: Colors.white, fontSize: 14),
-        ),
+      child: AppCard(
+        color: context.colors.primary,
+        padding: Spaces.tinyAll,
+        margin: Spaces.miniAll,
+        borderRadius: Radiuses.miniCircle,
+        child: Text(title, style: context.theme.backgroundTextTheme.bodyMedium),
       ),
     );
   }

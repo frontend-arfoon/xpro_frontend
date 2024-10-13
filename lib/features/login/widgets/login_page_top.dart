@@ -3,18 +3,13 @@ import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class LoginPageTop extends StatelessWidget {
-  const LoginPageTop({
-    super.key,
-  });
+  const LoginPageTop({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var siz = MediaQuery.of(context).size;
-
     return XPCard(
-      padding: Spaces.smallAll,
+      padding: Spaces.only(horizontal: Spaces.medium, vertical: Spaces.small),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Spaces.smallWidth,
         XPCard(
           onTap: () {
             Locales.change(context, "ps");
@@ -22,7 +17,7 @@ class LoginPageTop extends StatelessWidget {
           onDoubleTap: () {
             Locales.change(context, "en");
           },
-          child: Row(children: [
+          child: Row(mainAxisSize: MainAxisSize.min, children: [
             SvgIcon(SvgIcons.global, color: context.colors.text),
             Spaces.miniWidth,
             Text("English", style: context.theme.textTheme.bodyMedium),
@@ -30,13 +25,11 @@ class LoginPageTop extends StatelessWidget {
             SvgIcon(SvgIcons.arrow, size: 14, color: context.colors.text),
           ]),
         ),
-        Spaces.smallWidth,
-        XPCard(
-          height: 15,
-          color: context.colors.disabledLight,
-          width: 1,
-        ),
-        Spaces.smallWidth,
+        Row(children: [
+          SvgIcon(SvgIcons.exactPro,
+              width: 200, height: 30, color: context.colors.background),
+          Spaces.smallWidth
+        ]),
         BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, mode) {
             return XPCard(
@@ -58,17 +51,6 @@ class LoginPageTop extends StatelessWidget {
               ]),
             );
           },
-        ),
-        (siz.width.toInt() - 350).spacesW,
-        XPCard(
-          child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            SvgIcon(SvgIcons.exact, size: 35),
-            Spaces.miniWidth,
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text("Open", style: context.theme.textTheme.bodyMedium),
-              Text("Exact System", style: context.theme.textTheme.bodyMedium),
-            ]),
-          ]),
         ),
       ]),
     );

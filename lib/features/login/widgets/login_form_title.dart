@@ -1,4 +1,3 @@
-import 'package:exact_pro/utils/utils.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class LoginFormTitle extends StatelessWidget {
@@ -11,14 +10,10 @@ class LoginFormTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SvgIcon(SvgIcons.exactPro, width: 150, height: 30),
-        Spaces.mediumHeight,
-        Text(
-          "Welcome back",
-          style: context.theme.primaryTextTheme.displayLarge,
-        ),
-        Spaces.tinyHeight,
-        const Text("Lets Get Your Sign In!"),
+        Text("Sign in", style: context.theme.primaryTextTheme.displayLarge),
+        Text("Welcome back", style: context.theme.textTheme.displayLarge),
+        if (context.isDesktop) Spaces.tinyHeight,
+        if (context.isDesktop) const Text("Lets Get Your Sign In!"),
         Spaces.smallHeight,
       ],
     );

@@ -12,6 +12,9 @@ class SvgIcons {
   static SvgData light = const SvgData("dark");
   static SvgData auto = const SvgData("auto");
 
-  static SvgData close = const SvgData("auto");
+  static SvgData close = const SvgData("close");
   static SvgData defaultImage = const SvgData("auto");
+
+  static SvgData email = const SvgData("email");
+  static SvgData password = const SvgData("password");
 }
