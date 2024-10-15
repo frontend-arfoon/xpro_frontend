@@ -1,4 +1,3 @@
-import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class CircleCharWidget extends StatelessWidget {
@@ -16,7 +15,7 @@ class CircleCharWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var char = text == null || text == '' ? '' : text![0];
-    return XPCard(
+    return AppCard(
       alignment: AlignmentDirectional.center,
       width: size,
       height: size,

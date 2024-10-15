@@ -55,12 +55,12 @@ class _LoginPageState extends State<LoginPage> {
               color: context.colors.primary,
               child: AppCard(
                 borderRadius: context.isMobile
-                    ? Radiuses.only(top: const Radius.circular(Spaces.medium))
+                    ? Radiuses.only(top: const Radius.circular(Spaces.small))
                     : (context.ltr && context.isDesktop)
                         ? Radiuses.only(
-                            left: const Radius.circular(Spaces.medium))
+                            left: const Radius.circular(Spaces.small))
                         : Radiuses.only(
-                            right: const Radius.circular(Spaces.medium)),
+                            right: const Radius.circular(Spaces.small)),
                 color: context.colors.background,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

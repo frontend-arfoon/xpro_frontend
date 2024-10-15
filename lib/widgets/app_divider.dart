@@ -1,4 +1,4 @@
-import 'package:exact_pro/x_pro.dart';
+
 import 'package:flutter_utils/flutter_utils.dart';
 
 class AppDivider extends StatelessWidget {
@@ -16,7 +16,7 @@ class AppDivider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return XPCard(
+    return AppCard(
       margin: margin ?? Spaces.zero,
       padding: padding ?? Spaces.zero,
       width: double.infinity,

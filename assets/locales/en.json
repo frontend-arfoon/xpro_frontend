@@ -1,3 +1,16 @@
 {
-    
+    "do not hav an account":"Don't hav an account",
+    "ask to get registered":"Ask to get registered!",
+    "sign in":"Sign in",
+    "Welcome back":"Welcome back",
+    "lets get your sign in":"Lets Get Your Sign In!",
+    "email":"Email",
+    "email is required":"Email is required!",
+    "enter your email":"Enter Your Email",
+    "please enter a valid email":"Please enter a valid email",
+    "password":"Password",
+    "enter your password":"Enter Your password",
+    "forget password":"Forget password",
+    "password must be at least 6 characters":"Password must be at least 6 characters"
+
 }

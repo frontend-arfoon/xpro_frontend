@@ -1,5 +1,4 @@
-import 'package:exact_pro/x_pro.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_utils/flutter_utils.dart';
 
 class CustomDialog extends StatelessWidget {
   const CustomDialog({
@@ -29,7 +28,7 @@ class CustomDialog extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            XPCard(
+            AppCard(
               color: Colors.transparent,
               height: height,
               width: width,

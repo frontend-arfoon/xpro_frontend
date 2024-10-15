@@ -1,5 +1,4 @@
 import 'package:exact_pro/utils/app_utils/app_utils.dart';
-import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class LoginPageTop extends StatelessWidget {
@@ -7,10 +6,10 @@ class LoginPageTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return XPCard(
+    return AppCard(
       padding: Spaces.only(horizontal: Spaces.medium, vertical: Spaces.small),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        XPCard(
+        AppCard(
           onTap: () {
             Locales.change(context, "ps");
           },
@@ -32,7 +31,7 @@ class LoginPageTop extends StatelessWidget {
         ]),
         BlocBuilder<ThemeCubit, ThemeMode>(
           builder: (context, mode) {
-            return XPCard(
+            return AppCard(
               child:
                   Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 if (mode == ThemeMode.light)

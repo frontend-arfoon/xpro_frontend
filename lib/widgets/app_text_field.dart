@@ -1,8 +1,6 @@
 import 'dart:developer';
 
-import 'package:exact_pro/widgets/field_label.dart';
 import 'package:exact_pro/x_pro.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class AppTextField extends StatefulWidget {
@@ -168,7 +166,7 @@ class _AppTextFieldState extends State<AppTextField> {
       // flex: widget.flex,
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         if (widget.visible!)
-          XPCard(
+          AppCard(
             child: FormField(
               initialValue:
                   widget.controller != null ? widget.controller?.text : '',
@@ -244,7 +242,7 @@ class _AppTextFieldState extends State<AppTextField> {
       borderRadius: widget.borderRadius ?? Radiuses.mediumCircle,
     );
 
-    return XPCard(
+    return AppCard(
       height: (widget.maxLine != null) ? null : widget.height ?? 40,
       child: TextField(
         maxLines: widget.maxLine ?? 1,

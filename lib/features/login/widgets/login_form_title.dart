@@ -10,10 +10,12 @@ class LoginFormTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text("Sign in", style: context.theme.primaryTextTheme.displayLarge),
-        Text("Welcome back", style: context.theme.textTheme.displayLarge),
+        Text("Sign in".localize(context),
+            style: context.theme.primaryTextTheme.displayLarge),
+        Text("Welcome back".localize(context),
+            style: context.theme.textTheme.displayLarge),
         if (context.isDesktop) Spaces.tinyHeight,
-        if (context.isDesktop) const Text("Lets Get Your Sign In!"),
+        if (context.isDesktop) Text("Lets Get Your Sign In".localize(context)),
         Spaces.smallHeight,
       ],
     );

@@ -28,7 +28,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return XPCard(
+    return AppCard(
       padding: Spaces.only(
           horizontal: Spaces.medium,
           vertical: Spaces.small,
@@ -42,17 +42,17 @@ class LoginForm extends StatelessWidget {
             AppTextField(
               height: 60,
               prefix: SvgIcon(SvgIcons.email),
-              hintLabel: "Email",
-              hintText: "Enter Your Email",
+              hintLabel: "Email".localize(context),
+              hintText: "Enter Your Email".localize(context),
               controller: emailController,
               validator: (value) {
                 var isValidEmail = MXPUtils.isValidEmail(value);
                 if (value.isEmpty) {
-                  return "Email is Required";
+                  return "Email is Required".localize(context);
                 }
 
                 if (!isValidEmail) {
-                  return 'Please enter a valid email';
+                  return 'Please enter a valid email'.localize(context);
                 }
                 return null;
               },
@@ -60,29 +60,30 @@ class LoginForm extends StatelessWidget {
             Spaces.smallHeight,
             AppTextField(
               height: 60,
-              hintLabel: "Password",
+              hintLabel: "Password".localize(context),
               prefix: SvgIcon(SvgIcons.password),
               controller: passwordController,
               obSecureText: obSecure,
-              hintText: "Enter Your Password",
+              hintText: "Enter Your Password".localize(context),
               suffix: SvgIcon(SvgIcons.obscura, onTap: onObscure),
               validator: (value) {
                 if (value.isEmpty || value.length < 6) {
-                  return 'Password must be at least 6 characters';
+                  return 'Password must be at least 6 characters'
+                      .localize(context);
                 }
                 return null;
               },
             ),
           ],
         ),
-        XPCard(
+        AppCard(
           onTap: onForget,
           alignment: AlignmentDirectional.topEnd,
-          child: Text("Forget Password?",
+          child: Text("Forget Password?".localize(context),
               style: context.theme.primaryTextTheme.labelMedium),
         ),
         Spaces.smallHeight,
-        XPCard(
+        AppCard(
           onPressed: onFormSubmit,
           height: 40,
           width: double.infinity,
@@ -99,12 +100,12 @@ class LoginForm extends StatelessWidget {
           onTap: onAskRegister,
           child: RichText(
             text: TextSpan(
-              text: "Don't hav an account",
+              text: "Do not hav an account".localize(context),
               style: context.theme.disabledTextTheme.labelMedium,
               children: [
                 const TextSpan(text: "  "),
                 TextSpan(
-                    text: "Ask to get registered!",
+                    text: "Ask to get registered".localize(context),
                     style: context.theme.primaryTextTheme.bodyMedium),
               ],
             ),
