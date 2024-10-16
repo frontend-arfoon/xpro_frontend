@@ -19,7 +19,7 @@ class DashboardSide extends StatelessWidget {
 
   final SideNavType selected;
   final List<SideNavType> sidTabs;
-  final Function(SideNavType) onNav;
+  final Function(SideNavType nav) onNav;
   final Function(SideBottomActionType t) onAction;
   final Function() onCollaps;
   final Function() onAccount;

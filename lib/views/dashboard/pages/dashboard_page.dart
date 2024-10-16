@@ -60,38 +60,45 @@ class _DashBoardPageState extends State<DashBoardPage> {
   Widget _buildLabels() {
     return Padding(
       padding: Spaces.tinyEnd,
-      child: const AppLabelCart(
-        child: Column(children: [
-          Row(children: [
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
+      child: Container(
+        padding: Spaces.only(top: Spaces.mini),
+        decoration: BoxDecoration(
+          color: context.colors.primary,
+          borderRadius: Radiuses.mediumCircle,
+        ),
+        child: const AppLabelCart(
+          child: Column(children: [
+            Row(children: [
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+            ]),
+            Row(children: [
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+            ]),
+            Row(children: [
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+            ]),
+            Row(children: [
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+            ]),
+            Row(children: [
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+              Text("Data is this"),
+            ]),
           ]),
-          Row(children: [
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-          ]),
-          Row(children: [
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-          ]),
-          Row(children: [
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-          ]),
-          Row(children: [
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-            Text("Data is this"),
-          ]),
-        ]),
+        ),
       ),
     );
   }

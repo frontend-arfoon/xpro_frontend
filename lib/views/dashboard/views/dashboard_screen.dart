@@ -20,10 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         SideNavType.monitoring,
       ];
 
-  List<TopNavType> get topNaves => [
-        TopNavType.home,
-        TopNavType.report,
-      ];
+  List<TopNavType> get topNaves => [TopNavType.home, TopNavType.report];
   TopNavType selectedTopNav = TopNavType.home;
 
   @override
