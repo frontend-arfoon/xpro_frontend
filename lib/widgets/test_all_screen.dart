@@ -1,4 +1,4 @@
-import 'package:exact_pro/features/dashboard/views/dashboard_screen.dart';
+import 'package:exact_pro/views/dashboard/views/dashboard_screen.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 

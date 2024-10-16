@@ -79,7 +79,7 @@ class LoginForm extends StatelessWidget {
         AppCard(
           onTap: onForget,
           alignment: AlignmentDirectional.topEnd,
-          child: Text("Forget Password?".localize(context),
+          child: Text("Forget Password".localize(context),
               style: context.theme.primaryTextTheme.labelMedium),
         ),
         Spaces.smallHeight,

@@ -1,4 +1,4 @@
-import 'package:exact_pro/features/login/widgets/login_page_side.dart';
+import 'package:exact_pro/views/login/widgets/login_page_side.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 import 'package:exact_pro/x_pro.dart';

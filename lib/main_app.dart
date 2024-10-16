@@ -10,7 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _buildApp(home: const TestAllScreen(), blocs: [], repositories: []);
+    return _buildApp(
+      home: const TestAllScreen(),
+      blocs: [],
+      repositories: [],
+    );
   }
 
   Widget _buildApp({

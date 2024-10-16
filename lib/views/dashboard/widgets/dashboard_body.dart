@@ -1,25 +1,37 @@
-import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
+import 'package:exact_pro/x_pro.dart';
+
+enum TopNavType { home, report }
+
 class DashBoardBody extends StatelessWidget {
-  const DashBoardBody({super.key});
+  const DashBoardBody({
+    super.key,
+    required this.child,
+    required this.topNavTypes,
+    required this.selectedTopNavType,
+    required this.onSelectTopTYpe,
+  });
+
+  final Widget child;
+  final List<TopNavType> topNavTypes;
+  final TopNavType selectedTopNavType;
+  final Function(TopNavType t) onSelectTopTYpe;
 
   @override
   Widget build(BuildContext context) {
     return Column(mainAxisSize: MainAxisSize.max, children: [
-      DashBoardBodyTop(context: context),
+      DashboardBodyTop(
+        context: context,
+        topNavTypes: topNavTypes,
+        onSelectTopTYpe: onSelectTopTYpe,
+        selected: selectedTopNavType,
+      ),
       _buildDashboardFrame(
         context,
-        ListView(
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Dashboard", style: context.theme.textTheme.displayLarge),
-              ],
-            ),
-          ],
-        ),
+        ListView(children: [
+          Row(crossAxisAlignment: CrossAxisAlignment.start, children: [child]),
+        ]),
       ),
     ]);
   }
