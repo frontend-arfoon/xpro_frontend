@@ -1,3 +1,7 @@
+import 'package:exact_pro/utils/app_utils/app_utils.dart';
+import 'package:exact_pro/utils/app_utils/svg_icons.dart';
+import 'package:exact_pro/views/dashboard/widgets/dash_board_cart.dart';
+import 'package:exact_pro/views/dashboard/widgets/dash_board_cart_label.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
 class DashBoardPage extends StatefulWidget {
@@ -10,122 +14,124 @@ class DashBoardPage extends StatefulWidget {
 class _DashBoardPageState extends State<DashBoardPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
+    return Expanded(
+      child: Column(children: [
+        Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Expanded(
+            flex: 3,
+            child: AppCard(
+              padding: Spaces.only(all: Spaces.mini, end: Spaces.tiny),
+              child: Column(children: [
+                DashBoardCart(
+                  onAction: () {},
+                  titleStart: "Accounts",
+                  iconStart: SvgIcons.accountFill,
+                  titleEnd: "New",
+                  iconEnd: SvgIcons.plus,
+                  child: _buildAccounts(true),
+                ),
+                DashBoardCart(
+                  onAction: () {},
+                  titleStart: "Accounts",
+                  iconStart: SvgIcons.transaction,
+                  titleEnd: "New",
+                  iconEnd: SvgIcons.plus,
+                  child: _buildAccounts(false),
+                ),
+                DashBoardCart(
+                  onAction: () {},
+                  titleStart: "Accounts",
+                  iconStart: SvgIcons.bankBenefits,
+                  titleEnd: "New",
+                  iconEnd: SvgIcons.plus,
+                  child: _buildAccounts(true),
+                ),
+              ]),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: AppCard(
+              padding: Spaces.miniAll,
+              child: Column(
+                children: [
+                  DashBoardCart(
+                    titleStart: "Notifications",
+                    iconStart: SvgIcons.notification,
+                    child: const Text("data"),
+                  ),
+                  DashBoardCart(
+                    titleStart: "Rate",
+                    iconStart: SvgIcons.rate,
+                    titleEnd: "All",
+                    iconEnd: SvgIcons.arrow,
+                    child: const Text("data"),
+                  ),
+                  DashBoardCart(
+                    titleStart: "Treasure",
+                    iconStart: SvgIcons.transfer,
+                    titleEnd: "All",
+                    iconEnd: SvgIcons.arrow,
+                    child: const Text("data"),
+                  ),
+                  DashBoardCart(
+                    titleStart: "Bank",
+                    iconStart: SvgIcons.bank,
+                    titleEnd: "All",
+                    iconEnd: SvgIcons.arrow,
+                    child: const Text("data"),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ]),
-        Spaces.tinyHeight,
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-        ]),
-        Spaces.tinyHeight,
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-        ]),
-        Spaces.tinyHeight,
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-        ]),
-        Spaces.tinyHeight,
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-        ]),
-        Spaces.tinyHeight,
-        Row(children: [
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-          _buildLabels(),
-        ]),
-      ],
+      ]),
     );
   }
 
-  Widget _buildLabels() {
-    return Padding(
-      padding: Spaces.tinyEnd,
-      child: Container(
-        padding: Spaces.only(top: Spaces.mini),
-        decoration: BoxDecoration(
-          color: context.colors.primary,
-          borderRadius: Radiuses.mediumCircle,
-        ),
-        child: const AppLabelCart(
-          child: Column(children: [
-            Row(children: [
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-            ]),
-            Row(children: [
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-            ]),
-            Row(children: [
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-            ]),
-            Row(children: [
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-            ]),
-            Row(children: [
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-              Text("Data is this"),
-            ]),
-          ]),
-        ),
+  Row _buildAccounts(bool isAccount) {
+    return Row(children: [
+      DashBoardCartLabel(
+        isAccount: isAccount,
+        icon: SvgIcons.arrow,
+        title: "kook",
+        value: "8877",
+        onAction: () {},
+        child: const Text("data"),
       ),
-    );
-  }
-}
-
-class AppLabelCart extends StatelessWidget {
-  const AppLabelCart({
-    super.key,
-    required this.child,
-    this.onTap,
-    this.color,
-    this.borderColor,
-  });
-
-  final Widget child;
-  final Function()? onTap;
-  final Color? color, borderColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      color: color ?? context.colors.background,
-      onPressed: onTap,
-      border: Border.all(color: borderColor ?? context.colors.disabledLight),
-      borderRadius: Radiuses.mediumCircle,
-      padding: Spaces.tinyMiniAll,
-      child: child,
-    );
+      DashBoardCartLabel(
+        isAccount: isAccount,
+        icon: SvgIcons.arrow,
+        title: "ok ok",
+        value: "8877",
+        onAction: () {},
+        child: const Text("data"),
+      ),
+      DashBoardCartLabel(
+        isAccount: isAccount,
+        icon: SvgIcons.arrow,
+        title: "ok ok",
+        value: "8877",
+        onAction: () {},
+        child: const Text("data"),
+      ),
+      DashBoardCartLabel(
+        isAccount: isAccount,
+        icon: SvgIcons.arrow,
+        title: "ok ok",
+        value: "8877",
+        onAction: () {},
+        child: const Text("data"),
+      ),
+      DashBoardCartLabel(
+        isAccount: isAccount,
+        icon: SvgIcons.arrow,
+        title: "ok ok",
+        value: "8877",
+        onAction: () {},
+        child: const Text("data"),
+      ),
+    ]);
   }
 }

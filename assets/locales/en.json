@@ -12,6 +12,7 @@
     "password_must_be_at_least_6_characters":"Password must be at least 6 characters",
     "password":"Password",
     "email":"Email",
+    "accounts":"Accounts",
     "home":"Home",
     "report":"Report",
     "dashboard":"Dashboard",

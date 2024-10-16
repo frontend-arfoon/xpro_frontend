@@ -46,6 +46,7 @@ class SvgIcons {
   static SvgData withdraw = const SvgData("withdraw");
   static SvgData operations = const SvgData("operations");
   static SvgData collaps = const SvgData("collaps");
+  static SvgData plus = const SvgData("plus");
 
   static SvgData dashboardBottomSideIcons(SideBottomActionType t) {
     switch (t) {
