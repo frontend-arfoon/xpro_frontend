@@ -70,7 +70,7 @@ class DashboardSide extends StatelessWidget {
     return AppCard(
       margin: Spaces.tinyAll,
       child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-        const Text("Coups"),
+        const Text("Collaps"),
         Spaces.tinyWidth,
         AppCard(
             onPressed: onCollaps,
