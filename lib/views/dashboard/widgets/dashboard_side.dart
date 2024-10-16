@@ -46,6 +46,7 @@ class DashboardSide extends StatelessWidget {
           AppTextField(
             height: 42,
             autoFocus: true,
+            hintText: "search".localize(context),
             borderRadius: Radiuses.smallCircle,
             prefix: SvgIcon(SvgIcons.search),
             suffix: _buildSearchSuffix(context),
