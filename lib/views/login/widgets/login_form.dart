@@ -9,11 +9,12 @@ class LoginForm extends StatelessWidget {
     required this.emailController,
     required this.passwordController,
     required this.loading,
-    required this.onFormSubmit,
+    required this.onSave,
     required this.onObscure,
     required this.obSecure,
     required this.onForget,
     required this.onAskRegister,
+    this.error,
   });
 
   final TextEditingController emailController;
@@ -21,10 +22,11 @@ class LoginForm extends StatelessWidget {
   final bool loading;
   final bool obSecure;
 
-  final Function() onFormSubmit;
+  final Function() onSave;
   final Function() onObscure;
   final Function() onForget;
   final Function() onAskRegister;
+  final String? error;
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +69,8 @@ class LoginForm extends StatelessWidget {
               hintText: "Enter Your Password".localize(context),
               suffix: SvgIcon(SvgIcons.obscura, onTap: onObscure),
               validator: (value) {
-                if (value.isEmpty || value.length < 6) {
-                  return 'Password must be at least 6 characters'
+                if (value.isEmpty || value.length < 8) {
+                  return 'Password must be at least 8 characters'
                       .localize(context);
                 }
                 return null;
@@ -76,6 +78,14 @@ class LoginForm extends StatelessWidget {
             ),
           ],
         ),
+        if (error != null)
+          AppCard(
+            padding: Spaces.smallAll,
+            borderRadius: Radiuses.smallCircle,
+            border: Border.all(color: context.colors.negative),
+            child: Text(error ?? "",
+                style: context.theme.negativeTextTheme.bodyMedium),
+          ),
         AppCard(
           onTap: onForget,
           alignment: AlignmentDirectional.topEnd,
@@ -84,16 +94,22 @@ class LoginForm extends StatelessWidget {
         ),
         Spaces.smallHeight,
         AppCard(
-          onPressed: onFormSubmit,
+          onPressed: onSave,
           height: 40,
           width: double.infinity,
           color: context.colors.primary,
           borderRadius: Radiuses.mediumCircle,
           alignment: AlignmentDirectional.center,
-          child: Text(
-            loading ? "......" : "Get logged in",
-            style: context.theme.backgroundTextTheme.bodyMedium,
-          ),
+          child: (loading)
+              ? SizedBox(
+                  height: 25,
+                  width: 25,
+                  child: CircularProgressIndicator(
+                      strokeWidth: 6, color: context.colors.background))
+              : Text(
+                  "Get logged in",
+                  style: context.theme.backgroundTextTheme.bodyMedium,
+                ),
         ),
         Spaces.smallHeight,
         AppCard(

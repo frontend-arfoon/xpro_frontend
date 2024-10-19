@@ -1,4 +1,4 @@
-import 'package:exact_pro/views/dashboard/widgets/dashboard_side_actions_bottom.dart';
+import 'package:exact_pro/views/dashboard/widgets/dashboard_start_side.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
@@ -27,7 +27,7 @@ class SvgIcons {
   static SvgData dashboard = const SvgData("dashboard");
   static SvgData exchange = const SvgData("echange");
   static SvgData homeFill = const SvgData("home_fill");
-  static SvgData income = const SvgData("income");
+  static SvgData income = const SvgData("icome");
   static SvgData monitor = const SvgData("monitor");
   static SvgData notification = const SvgData("notification");
   static SvgData outgoing = const SvgData("outgoing");
@@ -47,6 +47,27 @@ class SvgIcons {
   static SvgData operations = const SvgData("operations");
   static SvgData collaps = const SvgData("collaps");
   static SvgData plus = const SvgData("plus");
+
+  static SvgData customer = const SvgData("customer");
+  static SvgData individual = const SvgData("individual");
+  static SvgData system = const SvgData("system");
+  static SvgData expense = const SvgData("expense");
+  static SvgData assets = const SvgData("assets");
+  static SvgData corporate = const SvgData("company");
+  static SvgData deposite = const SvgData("deposite");
+  static SvgData accTransfer = const SvgData("acc_transfer");
+  static SvgData upPin = const SvgData("up_pin");
+  static SvgData actions = const SvgData("actions");
+  static SvgData dabExchangeRate = const SvgData("dab_exchange_rate");
+  static SvgData dabAction = const SvgData("actions");
+  static SvgData dabSanctionList = const SvgData("dab_sanction_list");
+  static SvgData dabReport = const SvgData("dab_report");
+  static SvgData average = const SvgData("plus");
+  static SvgData activity = const SvgData("activity");
+  static SvgData pending = const SvgData("pending");
+  static SvgData link = const SvgData("link");
+  static SvgData messageText = const SvgData("message_text");
+  static SvgData alarm = const SvgData("alarm");
 
   static SvgData dashboardBottomSideIcons(SideBottomActionType t) {
     switch (t) {
@@ -78,6 +99,61 @@ class SvgIcons {
         return SvgIcons.homeFill;
       case TopNavType.report:
         return SvgIcons.report;
+    }
+  }
+
+  static accountTypeIcons(AccountType t) {
+    switch (t) {
+      case AccountType.customer:
+        return SvgIcons.customer;
+      case AccountType.individual:
+        return SvgIcons.individual;
+      case AccountType.corporate:
+        return SvgIcons.company;
+      case AccountType.assets:
+        return SvgIcons.assets;
+      case AccountType.expense:
+        return SvgIcons.expense;
+      case AccountType.system:
+        return SvgIcons.system;
+    }
+  }
+
+  static transitionTypeIcons(TransactionType t) {
+    switch (t) {
+      case TransactionType.deposit:
+        return SvgIcons.deposite;
+      case TransactionType.withdraw:
+        return SvgIcons.withdraw;
+      case TransactionType.accTransfer:
+        return SvgIcons.accTransfer;
+      case TransactionType.exchange:
+        return SvgIcons.exchange;
+      case TransactionType.income:
+        return SvgIcons.income;
+      case TransactionType.outgoing:
+        return SvgIcons.outgoing;
+    }
+  }
+
+  static actionTypeIcons(ActionType t) {
+    switch (t) {
+      case ActionType.unPin:
+        return SvgIcons.upPin;
+      case ActionType.pending:
+        return SvgIcons.pending;
+      case ActionType.activity:
+        return SvgIcons.activity;
+      case ActionType.average:
+        return SvgIcons.average;
+      case ActionType.dabSanctionList:
+        return SvgIcons.dabSanctionList;
+      case ActionType.dabAction:
+        return SvgIcons.dabAction;
+      case ActionType.dabExchangeRate:
+        return SvgIcons.dabExchangeRate;
+      case ActionType.adbReport:
+        return SvgIcons.dabReport;
     }
   }
 }

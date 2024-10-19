@@ -4,9 +4,11 @@ import 'package:flutter_utils/flutter_utils.dart';
 enum SideBottomActionType { changeThem, support, settings }
 
 class DashboardSideActionsBottom extends StatelessWidget {
-  const DashboardSideActionsBottom({super.key, required this.onACtion});
+  const DashboardSideActionsBottom(
+      {super.key, required this.onACtion, required this.collapsed});
 
   final Function(SideBottomActionType t) onACtion;
+  final bool collapsed;
 
   List<SideBottomActionType> get sidBottomTabs => ([
         SideBottomActionType.changeThem,
@@ -42,11 +44,13 @@ class DashboardSideActionsBottom extends StatelessWidget {
       borderRadius: Radiuses.smallCircle,
       color: context.colors.background,
       child: Row(
+        mainAxisAlignment:
+            !collapsed ? MainAxisAlignment.start : MainAxisAlignment.center,
         children: [
           SvgIcon(SvgIcons.dashboardBottomSideIcons(t),
               color: context.colors.text),
-          Spaces.tinyMiniWidth,
-          Text(t.name.enumWord.localize(context), style: style),
+          if (!collapsed) Spaces.tinyMiniWidth,
+          if (!collapsed) Text(t.name.enumWord.localize(context), style: style),
         ],
       ),
     );

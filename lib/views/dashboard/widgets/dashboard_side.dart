@@ -1,5 +1,3 @@
-import 'package:exact_pro/views/dashboard/widgets/dashboard_side_actions.dart';
-import 'package:exact_pro/views/dashboard/widgets/dashboard_side_actions_bottom.dart';
 import 'package:exact_pro/utils/app_utils/app_utils.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
@@ -15,6 +13,7 @@ class DashboardSide extends StatelessWidget {
     required this.onAction,
     required this.onCollaps,
     required this.onAccount,
+    required this.collapsed,
   });
 
   final SideNavType selected;
@@ -23,6 +22,7 @@ class DashboardSide extends StatelessWidget {
   final Function(SideBottomActionType t) onAction;
   final Function() onCollaps;
   final Function() onAccount;
+  final bool collapsed;
 
   @override
   Widget build(BuildContext context) {
@@ -31,35 +31,65 @@ class DashboardSide extends StatelessWidget {
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Column(children: [
-          Row(children: [
-            SvgIcon(SvgIcons.exact, size: 50),
-            Spaces.tinyWidth,
-            Expanded(
-              child: Text(
-                "Ahmadi Srafi and money exchange services",
-                overflow: TextOverflow.visible,
-                style: context.theme.primaryTextTheme.labelLarge,
-              ),
-            ),
-          ]),
-          Spaces.smallHeight,
-          AppTextField(
-            height: 42,
-            autoFocus: true,
-            hintText: "search".localize(context),
+          AppCard(
             borderRadius: Radiuses.smallCircle,
-            prefix: SvgIcon(SvgIcons.search),
-            suffix: _buildSearchSuffix(context),
+            onPressed: () {
+              context.popIfCan();
+            },
+            child: Row(
+              mainAxisAlignment: collapsed
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.start,
+              children: [
+                SvgIcon(SvgIcons.exact, size: 50),
+                if (!collapsed) Spaces.tinyWidth,
+                if (!collapsed)
+                  Expanded(
+                    child: Text(
+                      "Ahmadi Srafi and money exchange services",
+                      overflow: TextOverflow.visible,
+                      style: context.theme.primaryTextTheme.labelLarge,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          Spaces.smallHeight,
+          AppCard(
+            padding: Spaces.miniHorizontal,
+            child: AppTextField(
+              height: 38,
+              autoFocus: true,
+              hintText: "search".localize(context),
+              borderRadius: Radiuses.smallCircle,
+              prefix: SvgIcon(SvgIcons.search),
+              suffix: collapsed ? null : _buildSearchSuffix(context),
+              readOnly: true,
+              onTap: () {
+                context.pushDialog(CenterDialog(
+                  padding: Spaces.smallAll,
+                  maxWidth: 500,
+                  child: Column(children: [
+                    AppTextField(
+                      autoFocus: true,
+                      borderRadius: Radiuses.smallCircle,
+                      hintText: "Search you content",
+                    ),
+                  ]),
+                ));
+              },
+            ),
           ),
           Spaces.tinyMiniHeight,
-          DashboardSideActions(
+          DashboardSideNaves(
+            collapsed: collapsed,
             sidTabs: sidTabs,
             selected: selected,
             onNav: onNav,
           ),
         ]),
         Column(children: [
-          DashboardSideActionsBottom(onACtion: onAction),
+          DashboardSideActionsBottom(onACtion: onAction, collapsed: collapsed),
           _buildUser(context),
           _buildCollops(context),
         ])
@@ -71,17 +101,20 @@ class DashboardSide extends StatelessWidget {
     return AppCard(
       margin: Spaces.tinyAll,
       child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-        const Text("Collaps"),
-        Spaces.tinyWidth,
+        if (!collapsed) const Text("Collaps"),
+        if (!collapsed) Spaces.tinyWidth,
         AppCard(
             onPressed: onCollaps,
             border: Border.all(color: context.colors.disabledLight),
             borderRadius: Radiuses.smallCircle,
             padding: Spaces.miniAll,
-            child: SvgIcon(
-              SvgIcons.collaps,
-              color: context.colors.disabled,
-              size: 18,
+            child: RotatedBox(
+              quarterTurns: collapsed ? 2 : 0,
+              child: SvgIcon(
+                SvgIcons.collaps,
+                color: context.colors.disabled,
+                size: 18,
+              ),
             )),
       ]),
     );
@@ -96,14 +129,15 @@ class DashboardSide extends StatelessWidget {
       color: context.colors.primary.withOpacity(0.07),
       child: Row(children: [
         CircleCharWidget(color: context.colors.primary, text: "M", size: 38),
-        Spaces.miniWidth,
-        Column(
-          children: [
-            Text("Mr.Msayed Q",
-                style: context.theme.primaryTextTheme.bodyMedium),
-            Text(" Manager of Srafi", style: context.theme.textTheme.label),
-          ],
-        ),
+        if (!collapsed) Spaces.miniWidth,
+        if (!collapsed)
+          Column(
+            children: [
+              Text("Mr.Msayed Q",
+                  style: context.theme.primaryTextTheme.bodyMedium),
+              Text(" Manager of Srafi", style: context.theme.textTheme.label),
+            ],
+          ),
       ]),
     );
   }

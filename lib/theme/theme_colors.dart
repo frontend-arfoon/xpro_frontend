@@ -1,3 +1,4 @@
+import 'package:exact_pro/views/dashboard/widgets/dashboard_start_side.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
 
@@ -393,11 +394,6 @@ class AppColors {
   //   return colors.primary.withOpacity(.1);
   // }
 
-  static ofColorId(int id) {
-    var color = AppColors.colors.where((element) => element.id == id);
-    return color.firstOrNull;
-  }
-
   // static optionDataColor(int id, BuildContext context) {
   //   var color = themeColors();
   //   switch (id) {
@@ -414,4 +410,63 @@ class AppColors {
   //   }
   //   return ofId(id, context: context);
   // }
+
+  static ofColorId(int id) {
+    var color = AppColors.colors.where((element) => element.id == id);
+    return color.firstOrNull;
+  }
+
+  static optionDataColor(int id, BuildContext context) {
+    var color = themeColors();
+    switch (id) {
+      case 1:
+        return color.primary;
+      case 2:
+        return color.secondary;
+      case 3:
+        return color.warning;
+      case 4:
+        return color.error;
+      case 5:
+        return color.ok;
+    }
+  }
+
+  static accountTypeColor(AccountType t) {
+    var color = themeColors();
+
+    switch (t) {
+      case AccountType.customer:
+        return color.positive;
+      case AccountType.individual:
+        return color.negative;
+      case AccountType.corporate:
+        return color.ok;
+      case AccountType.assets:
+        return color.text;
+      case AccountType.expense:
+        return color.warning;
+      case AccountType.system:
+        return color.primary;
+    }
+  }
+
+  static transitionTypeColor(TransactionType t) {
+    var color = themeColors();
+
+    switch (t) {
+      case TransactionType.deposit:
+        return color.positive;
+      case TransactionType.withdraw:
+        return color.warning;
+      case TransactionType.accTransfer:
+        return color.positive;
+      case TransactionType.exchange:
+        return color.ok;
+      case TransactionType.income:
+        return color.primary;
+      case TransactionType.outgoing:
+        return color.negative;
+    }
+  }
 }

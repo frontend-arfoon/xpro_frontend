@@ -1,6 +1,8 @@
-import 'package:exact_pro/views/dashboard/widgets/dashboard_body.dart';
-import 'package:exact_pro/utils/app_utils/svg_icons.dart';
+import 'package:exact_pro/widgets/app_popup_action.dart';
 import 'package:flutter_utils/flutter_utils.dart';
+
+import 'package:exact_pro/utils/app_utils/svg_icons.dart';
+import 'package:exact_pro/views/dashboard/widgets/dashboard_body.dart';
 
 class DashboardBodyTop extends StatelessWidget {
   const DashboardBodyTop({
@@ -20,13 +22,33 @@ class DashboardBodyTop extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppCard(
       padding: Spaces.tinyAll,
-      child: Row(children: [
-        ...List.generate(
-          topNavTypes.length,
-          (i) => _buildItem(context, onTap: () {
-            onSelectTopTYpe.call(topNavTypes[i]);
-          }, t: topNavTypes[i], selected: topNavTypes[i] == selected),
-        ),
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        Row(children: [
+          ...List.generate(
+            topNavTypes.length,
+            (i) => _buildItem(context, onTap: () {
+              onSelectTopTYpe.call(topNavTypes[i]);
+            }, t: topNavTypes[i], selected: topNavTypes[i] == selected),
+          ),
+        ]),
+        //
+        Row(children: [
+          AppPopupAction(
+            prefixSvg: SvgIcons.company,
+            text: "Kabul Branch",
+          ),
+          AppCard(
+            margin: Spaces.tinyHorizontal,
+            width: 2,
+            color: context.colors.disabledLight,
+            height: 20,
+          ),
+          AppPopupAction(
+            prefixSvg: SvgIcons.global,
+            text: "English",
+          ),
+          Spaces.tinyWidth
+        ])
       ]),
     );
   }

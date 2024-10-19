@@ -7,9 +7,9 @@
     "email_is_required":"Email is required!",
     "enter_your_email":"Enter Your Email",
     "please_enter_a_valid_email":"Please enter a valid email",
-    "enter_your-password":"Enter Your password",
+    "enter_your_password":"Enter Your password",
     "forget_password":"Forget password?",
-    "password_must_be_at_least_6_characters":"Password must be at least 6 characters",
+    "password_must_be_at_least_6_characters":"Password must be at least 8 characters",
     "password":"Password",
     "email":"Email",
     "accounts":"Accounts",
@@ -23,6 +23,64 @@
     "settings":"Settings",
     "monitoring":"Monitoring",
     "support":"Support",
-    "save":"save"
+    "save":"save",
+    "notifications":"Notifications",
+    "rate":"Rate",
+    "treasure":"Treasure",
+    "bank":"Bank",
+    "transactions":"Transactions",
+    "benefit":"Benefit",
+    "add":"Add",
+    "all":"All",
+    "more":"More",
+    "search":"Search",
+
+
+        "customer":
+        "Customer"
+        ,
+        "individual":
+        "Individual"
+        ,
+        "corporate":
+        "Corporate",
+        "assets":
+        "Assets",
+        "expense":
+        "Expense",
+        "system":
+        "System",
+      
+      
+        "deposit":
+        "Deposit",
+        "withdraw":
+        "Withdraw",
+        "acc_transfer":
+        "Acc Transfer",
+        "exchange":
+        "Exchange",
+        "income":
+        "Income",
+        "outgoing":
+        "Outgoing",
+      
+      
+        "un_pin":
+        "Unpin",
+        "pending":
+        "Pending",
+        "activity":
+        "Activity",
+        "average":
+        "Average",
+        "dab_sanction_list":
+        "DAB Sanction List",
+        "dab_action":
+        "DAB Action",
+        "dabExchangeRate":    "dabExchangeRate",
+        "adb_report": "ADB Report"
+      
+
 
 }

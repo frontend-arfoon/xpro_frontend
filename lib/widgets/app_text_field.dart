@@ -161,9 +161,9 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = SizedBox(
-      // when: widget.flex != null,
-      // flex: widget.flex,
+    Widget child = ExpandedWhen(
+      when: widget.flex != null,
+      flex: widget.flex,
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         if (widget.visible!)
           AppCard(

@@ -6,7 +6,7 @@ import 'package:exact_pro/x_pro.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, this.onLogin, this.onForget, this.onAskRegister});
 
-  final Function(LoginData)? onLogin;
+  final Future Function(LoginData)? onLogin;
   final Function()? onForget;
   final Function()? onAskRegister;
 
@@ -27,9 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   bool loading = false;
   String? error;
-
   bool onSecure = true;
-
   LoginData get _loginRecord => (LoginData(
         email: _emailController.text,
         password: _passwordController.text,
@@ -76,34 +74,43 @@ class _LoginPageState extends State<LoginPage> {
                             emailController: _emailController,
                             passwordController: _passwordController,
                             loading: loading,
+                            error: error,
                             onAskRegister: () {
                               widget.onAskRegister?.call();
                             },
                             onForget: () {
                               widget.onForget?.call();
                             },
-                            onFormSubmit: () {
+                            onSave: () async {
+                              var valid = _formKey.currentState!.validate();
                               try {
-                                var valid = _formKey.currentState!.validate();
-
                                 if (!valid) {
                                   return;
                                 }
 
-                                setState(() {
-                                  loading = true;
-                                });
+                                if (error == null) {
+                                  setState(() {
+                                    error = "As Error";
+                                  });
+                                  return;
+                                }
 
-                                Future.delayed(const Duration(seconds: 3));
-                                widget.onLogin?.call(_loginRecord);
+                                if (!loading) {
+                                  setState(() {
+                                    loading = true;
+                                  });
+                                }
+
+                                await Future.delayed(
+                                    const Duration(milliseconds: 500));
+                                await widget.onLogin?.call(_loginRecord);
+                                error = null;
+                                //
                               } catch (e) {
-                                setState(() {
-                                  error = e.toString();
-                                });
+                                error = e.toString();
                               } finally {
                                 setState(() {
                                   loading = false;
-                                  error = null;
                                 });
                               }
                             },
@@ -119,9 +126,6 @@ class _LoginPageState extends State<LoginPage> {
                       if (context.isDesktop) const Spacer(),
                     ]),
                     if (context.isDesktop) const SizedBox.shrink(),
-                    if (error != null)
-                      Text(error ?? "",
-                          style: context.theme.textTheme.bodyMedium),
                   ],
                 ),
               ),

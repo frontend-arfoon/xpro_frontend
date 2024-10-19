@@ -1,4 +1,4 @@
-import 'package:exact_pro/views/dashboard/widgets/dashboard_side_actions_bottom.dart';
+import 'package:exact_pro/views/dashboard/widgets/dashboard_start_side.dart';
 import 'package:exact_pro/views/dashboard/widgets/side_nav_body.dart';
 import 'package:exact_pro/x_pro.dart';
 import 'package:flutter_utils/flutter_utils.dart';
@@ -23,6 +23,32 @@ class _DashboardScreenState extends State<DashboardScreen> {
   List<TopNavType> get topNaves => [TopNavType.home, TopNavType.report];
   TopNavType selectedTopNav = TopNavType.home;
 
+  List<AccountType> accountTypes = [
+    AccountType.customer,
+    AccountType.individual,
+    AccountType.corporate,
+    AccountType.assets,
+    AccountType.system
+  ];
+  List<TransactionType> transactionTypes = [
+    TransactionType.deposit,
+    TransactionType.withdraw,
+    TransactionType.accTransfer,
+    TransactionType.exchange,
+    TransactionType.income,
+    TransactionType.outgoing
+  ];
+  List<ActionType> actionType = [
+    ActionType.unPin,
+    ActionType.pending,
+    ActionType.activity,
+    ActionType.average,
+    ActionType.dabSanctionList,
+    ActionType.adbReport,
+    ActionType.dabAction,
+    ActionType.dabExchangeRate
+  ];
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -31,10 +57,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
         bloc: cubit,
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar(elevation: 1, title: const Text("Dashboard")),
             body: Container(
               color: context.colors.background,
-              child: Row(children: [
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                 Expanded(
                   child: DashboardSide(
                     selected: state.nav,
@@ -53,11 +78,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       }
                     },
                     onAccount: () {},
-                    onCollaps: () {},
+                    collapsed: state.collapsed,
+                    onCollaps: () {
+                      cubit.onCollapsed(!state.collapsed);
+                    },
                   ),
                 ),
                 Expanded(
-                  flex: 6,
+                  flex: state.collapsed ? 15 : 6,
                   child: DashBoardBody(
                     topNavTypes: topNaves,
                     selectedTopNavType: selectedTopNav,
@@ -70,6 +98,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     child: SideNavBody(
                       selectedTopNav: selectedTopNav,
                       selectedSideNav: state.nav,
+                      accountTypes: accountTypes,
+                      transactionTypes: transactionTypes,
+                      actionType: actionType,
                     ),
                   ),
                 ),

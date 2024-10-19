@@ -5,7 +5,7 @@ import 'package:flutter_utils/flutter_utils.dart';
 class DashBoardCart extends StatelessWidget {
   const DashBoardCart({
     super.key,
-    required this.child,
+    this.child,
     required this.titleStart,
     required this.iconStart,
     this.titleEnd,
@@ -13,7 +13,7 @@ class DashBoardCart extends StatelessWidget {
     this.onAction,
   });
 
-  final Widget child;
+  final Widget? child;
   final String titleStart;
   final SvgData iconStart;
   final String? titleEnd;
@@ -52,7 +52,7 @@ class DashBoardCart extends StatelessWidget {
                 ),
             ]),
         Spaces.tinyMiniHeight,
-        child
+        child ?? const SizedBox.shrink()
       ]),
     );
   }
