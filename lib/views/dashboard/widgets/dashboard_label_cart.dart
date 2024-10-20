@@ -29,6 +29,7 @@ class DashboardLabelCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppLabelCart(
+      onTap: () {},
       margin: Spaces.tinyEnd,
       padding: Spaces.tinyAll,
       borderRadius: Radiuses.smallCircle,

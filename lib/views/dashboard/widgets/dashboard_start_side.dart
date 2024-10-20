@@ -63,8 +63,8 @@ class DashboardPageStartSide extends StatelessWidget {
   DashBoardCart _buildActions(BuildContext context) {
     return DashBoardCart(
       onAction: () {},
-      titleStart: "Accounts",
-      iconStart: SvgIcons.accountFill,
+      titleStart: "Actions",
+      iconStart: SvgIcons.actions,
       titleEnd: "More",
       iconEnd: SvgIcons.arrow,
       child: Wrap(runSpacing: Spaces.tiny, children: [
@@ -86,8 +86,8 @@ class DashboardPageStartSide extends StatelessWidget {
   DashBoardCart _buildTransaction() {
     return DashBoardCart(
       onAction: () {},
-      titleStart: "Accounts",
-      iconStart: SvgIcons.accountFill,
+      titleStart: "transactions",
+      iconStart: SvgIcons.transaction,
       titleEnd: "Today",
       iconEnd: SvgIcons.arrow,
       child: Row(children: [
@@ -105,7 +105,7 @@ class DashboardPageStartSide extends StatelessWidget {
     );
   }
 
-  DashBoardCart _buildAccounts() {
+  Widget _buildAccounts() {
     return DashBoardCart(
       onAction: () {},
       titleStart: "Accounts",
